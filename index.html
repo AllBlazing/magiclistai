@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>hywizardai.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>hywizardai.com</header>
+  <div class="container">
+    <form id="search-form">
+      <input id="athlete-name" type="text" placeholder="Athlete Name" required>
+      <select id="fitness-level">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+      <input id="result-url" type="text" placeholder="Race Result URL (optional)">
+      <input id="manual-time" type="text" placeholder="Race Time (HH:MM:SS)">
+      <select id="gender">
+        <option value="">Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <select id="age-group">
+        <option value="">Age Group</option>
+        <option value="18-24">18-24</option>
+        <option value="25-29">25-29</option>
+        <option value="30-34">30-34</option>
+        <option value="35-39">35-39</option>
+        <option value="40-44">40-44</option>
+        <option value="45-49">45-49</option>
+        <option value="50+">50+</option>
+      </select>
+      <button type="submit">Get Gear Recommendations</button>
+    </form>
+    <div id="loading" class="loading" style="display:none;">Loading...</div>
+    <div id="filter-bar" class="filter-bar"></div>
+    <div id="gear-list" class="gear-list"></div>
+    <div class="shopping-list" id="shopping-list">
+      <h2>Shopping List</h2>
+    </div>
+    <button id="share-btn">Share Shopping List</button>
+  </div>
+  <!-- Paywall Modal -->
+  <div id="paywall-modal" class="modal">
+    <div class="modal-content">
+      <h2>Upgrade to Pro</h2>
+      <p>Get unlimited gear searches, advanced recommendations, and more!</p>
+      <div class="plan-comparison">
+        <div class="plan">
+          <h3>Free Plan</h3>
+          <ul>
+            <li>1 gear search per month</li>
+            <li>Basic gear recommendations</li>
+            <li>Simple shopping list</li>
+            <li>Share functionality</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h3>Pro Plan</h3>
+          <ul>
+            <li>Unlimited gear searches</li>
+            <li>Advanced gear recommendations</li>
+            <li>Save multiple shopping lists</li>
+            <li>Cloud storage for lists</li>
+            <li>Priority support</li>
+            <li>Access to beginner/intermediate/advanced filters</li>
+            <li>Save favorite items</li>
+          </ul>
+          <button id="upgrade-btn">Upgrade Now</button>
+        </div>
+      </div>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+  <script src="liveSearch.js"></script>
+  <script src="main.js"></script>
+</body>
+</html> 

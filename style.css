@@ -1,0 +1,256 @@
+/* Minimalist, mobile-first styles for hywizardai.com */
+/* Accent color: #E2FE38 (Hyrox yellow) */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #fff;
+  color: #111;
+  min-height: 100vh;
+}
+
+header {
+  padding: 1rem;
+  text-align: center;
+  background: #111;
+  color: #E2FE38;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button, .accent {
+  background: #E2FE38;
+  color: #111;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:active {
+  background: #c6e200;
+}
+
+.gear-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gear-card {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.gear-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #eee;
+}
+
+.gear-info {
+  flex: 1;
+}
+
+.gear-title {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.gear-summary {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.gear-price {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.add-btn {
+  margin-top: 0.5rem;
+}
+
+.shopping-list {
+  margin-top: 2rem;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.shopping-list h2 {
+  color: #E2FE38;
+  margin-top: 0;
+}
+
+.shopping-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.remove-btn {
+  background: none;
+  color: #E2FE38;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  flex: 1;
+  background: #eee;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.filter-btn.active, .filter-btn:active {
+  background: #E2FE38;
+  color: #111;
+}
+
+.loading {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Paywall Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90vw;
+  text-align: center;
+  margin: auto;
+}
+
+.plan-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 600px) {
+  .plan-comparison {
+    flex-direction: row;
+  }
+}
+
+.plan {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.plan h3 {
+  color: #E2FE38;
+  margin-top: 0;
+}
+
+.plan ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#upgrade-btn {
+  background: #E2FE38;
+  color: #111;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+#upgrade-btn:active {
+  background: #c6e200;
+}
+
+#close-modal {
+  background: #eee;
+  color: #111;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+#close-modal:active {
+  background: #ddd;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0.5rem;
+  }
+  .gear-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .gear-card img {
+    width: 100%;
+    height: 120px;
+  }
+} 
