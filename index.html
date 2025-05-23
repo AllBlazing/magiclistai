@@ -8,40 +8,53 @@
 </head>
 <body>
   <header>hywizardai.com</header>
-  <div class="container">
-    <form id="search-form">
-      <input id="athlete-name" type="text" placeholder="Athlete Name" required>
-      <select id="fitness-level">
-        <option value="Beginner">Beginner</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced">Advanced</option>
-      </select>
-      <input id="result-url" type="text" placeholder="Race Result URL (optional)">
-      <input id="manual-time" type="text" placeholder="Race Time (HH:MM:SS)">
-      <select id="gender">
-        <option value="">Gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-      <select id="age-group">
-        <option value="">Age Group</option>
-        <option value="18-24">18-24</option>
-        <option value="25-29">25-29</option>
-        <option value="30-34">30-34</option>
-        <option value="35-39">35-39</option>
-        <option value="40-44">40-44</option>
-        <option value="45-49">45-49</option>
-        <option value="50+">50+</option>
-      </select>
-      <button type="submit">Get Gear Recommendations</button>
-    </form>
-    <div id="loading" class="loading" style="display:none;">Loading...</div>
-    <div id="filter-bar" class="filter-bar"></div>
-    <div id="gear-list" class="gear-list"></div>
-    <div class="shopping-list" id="shopping-list">
-      <h2>Shopping List</h2>
+  <div class="main-content">
+    <!-- Left Column: Shopping List -->
+    <div class="column left-column">
+      <div class="shopping-list" id="shopping-list">
+        <h2>Shopping List</h2>
+        <!-- Shopping items will be rendered here -->
+      </div>
+      <button id="share-btn" class="btn-white">Share Shopping List</button>
     </div>
-    <button id="share-btn">Share Shopping List</button>
+
+    <!-- Right Column: Gear Form & Recommendations -->
+    <div class="column right-column">
+      <form id="search-form">
+        <label for="has-details">Do you have a Hyrox race result or details?</label>
+        <select id="has-details">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <div id="details-fields">
+          <input id="athlete-name" type="text" placeholder="Athlete Name or Result URL">
+        </div>
+        <div id="manual-fields" style="display:none;">
+          <select id="fitness-level">
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+          <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <select id="age-group">
+            <option value="18-24">18-24</option>
+            <option value="25-29">25-29</option>
+            <option value="30-34">30-34</option>
+            <option value="35-39">35-39</option>
+            <option value="40-44">40-44</option>
+            <option value="45-49">45-49</option>
+            <option value="50+">50+</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-black">Get Gear Recommendations</button>
+      </form>
+      <div id="loading" class="loading" style="display:none;">Loading...</div>
+      <div id="filter-bar" class="filter-bar"></div>
+      <div id="gear-list" class="gear-list"></div>
+    </div>
   </div>
   <!-- Paywall Modal -->
   <div id="paywall-modal" class="modal">
@@ -75,6 +88,21 @@
       <button id="close-modal">Close</button>
     </div>
   </div>
+  <script>
+    // Dropdown logic for conditional fields
+    const hasDetails = document.getElementById('has-details');
+    const detailsFields = document.getElementById('details-fields');
+    const manualFields = document.getElementById('manual-fields');
+    hasDetails.addEventListener('change', () => {
+      if (hasDetails.value === 'yes') {
+        detailsFields.style.display = '';
+        manualFields.style.display = 'none';
+      } else {
+        detailsFields.style.display = 'none';
+        manualFields.style.display = '';
+      }
+    });
+  </script>
   <script src="liveSearch.js"></script>
   <script src="main.js"></script>
 </body>
